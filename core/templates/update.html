@@ -1,0 +1,82 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+
+<body>
+
+    <!-- 
+    <form action="{% url 'update' carro.id %}" method="POST">
+        {% csrf_token %}
+            <label for="modelo">Modelo:</label>
+            <input type="text" name="modelo" placeholder="{{ carro.modelo }} ">
+            <label for="marca">Marca:</label>
+            <input type="text" name="marca" placeholder="{{ carro.marca }}">
+            <label for="anoFabricacao">Ano de Fabricação:</label>
+            <input type="number" name="anoFabricacao" placeholder="{{ carro.anoFabricacao }}">
+            <label for="potenciaCV">Potencia(CV):</label>
+            <input type="number" name="potenciaCV" placeholder="{{ carro.potenciaCV }}">
+            <label for="preco">Preço:</label>
+            <input type="number" name="preco" placeholder = "{{ carro.preco }}">
+            <label for="imgUrl">Imagem(URL):</label>
+            <input type="text" name="imgUrl" placeholder = "{{ carro.imgUrl }}">
+            <button type="submit">update</button>
+    </form> -->
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid">
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <a class="logo" href="/core"><img src="{% static 'imagens/car_icon_145832.png' %}"alt="logo"></a>
+                <a class="nav-link active nav-admin" aria-current="page" href="{% url 'areaAdmin' %}">ADMIN</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <form action="{% url 'update' carro.id %}" method="POST">
+            {% csrf_token %}
+            <div class="imgUpdate"> <img src="{{carro.imgUrl}}" alt=""></div>
+            <div class="mb-3">
+                <label class="form-label" for="modelo">Modelo:</label>
+                <input class="form-control" type="text" name="modelo" placeholder="{{ carro.modelo }} ">
+            </div>
+            <div class="mb-3">
+                <label class="form-label" for="marca">Marca:</label>
+                <input class="form-control" type="text" name="marca" placeholder="{{ carro.marca }}">
+            </div>
+            <div class="mb-3">
+                <label class="form-label" for="anoFabricacao">Ano de Fabricação:</label>
+                <input class="form-control" type="number" name="anoFabricacao" placeholder="{{ carro.anoFabricacao }}">
+            </div>
+            <div class="mb-3">
+                <label class="form-label" for="potenciaCV">Potencia(CV):</label>
+                <input class="form-control" type="number" name="potenciaCV" placeholder="{{ carro.potenciaCV }}">
+            </div>
+            <div class="mb-3">
+                <label class="form-label" for="preco">Preço:</label>
+                <input class="form-control" type="number" name="preco" placeholder="{{ carro.preco }}">
+            </div>
+            <div class="mb-3">
+                <label class="form-label" for="imgUrl">Imagem(URL):</label>
+                <input class="form-control" type="text" name="imgUrl" placeholder="{{ carro.imgUrl }}">
+            </div>
+            <button class="btn btn-outline-primary" type="submit">salvar</button>
+        </form>
+    </div>
+
+    <div class="container container-footer">
+        <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
+            <p class="col-md-4 mb-0 text-muted">2023 Back-end</p>
+        </footer>
+    </div>
+
+</body>
+
+</html>
